@@ -101,10 +101,10 @@ extension SerrataTransition: UIViewControllerAnimatedTransitioning {
             selectedImageViewFrame.size.width = sizeWidth
         }
 
-        let blackBlurView = UIView(frame: fromViewController.view.frame)
-        blackBlurView.backgroundColor = .black
-        blackBlurView.alpha = 0
-        containerView.addSubview(blackBlurView)
+        let whiteBlurredView = UIView(frame: fromViewController.view.frame)
+        whiteBlurredView.backgroundColor = .white
+        whiteBlurredView.alpha = 0
+        containerView.addSubview(whiteBlurredView)
 
         let wrapperSelectedImageView = UIImageView(image: selectedImage)
         wrapperSelectedImageView.frame = selectedImageViewFrame
@@ -117,10 +117,10 @@ extension SerrataTransition: UIViewControllerAnimatedTransitioning {
 
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             wrapperSelectedImageView.frame = toViewController.view.frame
-            blackBlurView.alpha = 1
+            whiteBlurredView.alpha = 1
         }) { _ in
             fromImageView.isHidden = false
-            blackBlurView.removeFromSuperview()
+            whiteBlurredView.removeFromSuperview()
             wrapperSelectedImageView.removeFromSuperview()
             toViewController.view.isHidden = false
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)

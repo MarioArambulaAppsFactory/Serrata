@@ -48,7 +48,7 @@ public final class SlideLeafCell: UICollectionViewCell {
 
     public override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .clear
+        backgroundColor = .white
         contentView.backgroundColor = .clear
 
         doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTapGesture(_:)))
